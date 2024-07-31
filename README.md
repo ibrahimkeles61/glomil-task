@@ -1,8 +1,7 @@
-# React + Vite
+# Glomil TASK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Glomil Teknoloji için mülakat sürecimde yapmam istenen bir web sayfası.
 
-Currently, two official plugins are available:
+## Kurulum
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Projenin githubtaki ana sayfasından web linkini kopyalayın. Bilgisayarınızda git kurulu değilse önce onu kurmanız gerekiyor. Daha sonra terminalde, repoyu kurmak istediğiniz klasöre gelin ve 'git clone <kopyaladığınız web linki>' komutunu çalıştırın. Ardından, önce reponun klasörüne girmek için 'cd glomil-task' komutunu, daha sonra da 'npm install' ve install işlemi bittikten sonra 'npm run dev' komutlarını sırasıyla çalıştırın. Terminalde uygulamanın hangi portta çalıştığı yazacaktır. Örnek olarak 'http://localhost:5173/' gibi. O linke ctrl + click yaparak uygulamayı tarayıcınızda çalıştırabilirsiniz.
