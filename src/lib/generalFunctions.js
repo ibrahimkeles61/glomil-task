@@ -1,0 +1,1 @@
+export const takeFirstLetters = (fullName) => fullName.split(' ').map(e=>e[0]).join('').toUpperCase()

@@ -1,0 +1,25 @@
+.headerOptionsContainer {
+  width: 150px;
+  height: 40px;
+  margin-left: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.headerOption {
+  width: auto;
+  height: 22px;
+}
+
+.bell {
+  transform: rotate(45deg);
+}
+
+.settings {
+  height: 25px;
+}
+
+.information {
+  height: 21px;
+}

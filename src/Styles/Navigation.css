@@ -1,0 +1,5 @@
+.navigation{
+    width: 271px;
+    height: calc(var(--app-height) - 104px);
+    background-color: aquamarine;
+}
