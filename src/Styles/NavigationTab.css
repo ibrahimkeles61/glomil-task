@@ -1,0 +1,31 @@
+.navigationTab {
+  width: 211px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.tabIcon {
+  margin-left: 9px;
+}
+
+.home-icon {
+  margin-left: 6px;
+}
+
+.micro-functions-icon {
+  margin-left: 11px;
+}
+
+.gateway-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.file-storage-icon {
+  margin-left: 11px;
+}
+
+.tabName {
+  margin-left: 15px;
+}
