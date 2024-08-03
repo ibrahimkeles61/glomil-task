@@ -6,47 +6,47 @@ import NavigationTab from "./NavigationTab";
 function Navigation() {
   const [services, setServices] = useState([
     {
-      id: 1,
-      service: "home",
+      id: "pg1",
+      sectionName: "home",
     },
     {
-      id: 2,
-      service: "studio",
+      id: "pg2",
+      sectionName: "studio",
     },
     {
-      id: 3,
-      service: "datasources",
+      id: "pg3",
+      sectionName: "datasources",
     },
     {
-      id: 4,
-      service: "flow-machine",
+      id: "pg4",
+      sectionName: "flow-machine",
     },
     {
-      id: 5,
-      service: "micro-functions",
+      id: "pg5",
+      sectionName: "micro-functions",
     },
     {
-      id: 6,
-      service: "gateway",
+      id: "pg6",
+      sectionName: "gateway",
     },
     {
-      id: 7,
-      service: "file-storage",
+      id: "pg7",
+      sectionName: "file-storage",
     },
   ]);
 
   const [categories, setCategories] = useState([
     {
-      id: 1,
-      category: "application-manager",
+      id: "ctg1",
+      sectionName: "application-manager",
     },
     {
-      id: 2,
-      category: "monitoring",
+      id: "ctg2",
+      sectionName: "monitoring",
     },
     {
-      id: 3,
-      category: "console",
+      id: "ctg3",
+      sectionName: "console",
     },
   ]);
 
@@ -56,7 +56,7 @@ function Navigation() {
         <p>Tüm Hizmetler</p>
         <div className="tabs">
           {services.map((e) => (
-            <NavigationTab key={e.id} tabName={e.service} />
+            <NavigationTab key={e.id} tabName={e.sectionName} />
           ))}
         </div>
       </div>
@@ -64,7 +64,7 @@ function Navigation() {
         <p>Kategoriler</p>
         <div className="tabs">
           {categories.map((e) => (
-            <NavigationTab key={e.id} tabName={e.category} />
+            <NavigationTab key={e.id} tabName={e.sectionName} />
           ))}
         </div>
       </div>

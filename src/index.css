@@ -2,6 +2,12 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 } */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   /* Colors: */
   --shadow-color: #0000001a;
@@ -48,6 +54,7 @@
   ---fcd34d-yellow300: #fcd34d;
   ---fbbf24-yellow400: #fbbf24;
   ---f59e0b-yellow500: #f59e0b;
+  ---f59e0c-yellow550: #f59e0c;
   ---cd6f00-yellow600: #cd6f00;
   ---b45309-yellow700: #b45309;
   ---92400e-yellow800: #92400e;
@@ -97,6 +104,8 @@
   /* Font/text values */
   --app-width: 1920px;
   --app-height: 1103px;
+
+  --notification-bar-border-width: 1px;
 
   --unnamed-font-family-inter: Inter;
   --unnamed-font-family-space-mono: Space Mono;

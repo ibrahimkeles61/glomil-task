@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/NavigationTab.css";
-import { tabNameFormatter } from "../lib/generalFunctions";
+import { nameFormatter } from "../lib/generalFunctions";
 
 function NavigationTab({ tabName }) {
   return (
@@ -10,7 +10,7 @@ function NavigationTab({ tabName }) {
         src={`assets/${tabName}-icon.png`}
         alt=""
       />{" "}
-      <div className="tabName">{tabNameFormatter(tabName)}</div>
+      <div className="tabName">{nameFormatter(tabName)}</div>
     </div>
   );
 }

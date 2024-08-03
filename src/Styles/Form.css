@@ -1,0 +1,9 @@
+.form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  background-color: #ff000044;
+  margin-top: 30px;
+}

@@ -1,9 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .app {
   width: var(--app-width);
   height: var(--app-height);
@@ -11,4 +5,8 @@
 
   display: flex;
   flex-wrap: wrap;
+}
+
+.disable {
+  display: none;
 }
