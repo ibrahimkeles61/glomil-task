@@ -1,5 +1,5 @@
 .app {
-  width: var(--app-width);
+  /* width: var(--app-width); */
   height: var(--app-height);
   background-color: var(--white);
 
