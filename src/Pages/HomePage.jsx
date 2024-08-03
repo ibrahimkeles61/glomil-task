@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "../Styles/HomePage.css";
 import NotificationBar from "../Components/NotificationBar";
 import Form from "../Components/Form.jsx";
+import {
+  nameFormatter,
+  currentPathFormatter,
+} from "../lib/generalFunctions.js";
 
 function HomePage() {
   const [services, setServices] = useState([
@@ -62,10 +66,10 @@ function HomePage() {
     <div className="homePage">
       <div className="pageContent">
         <div className="currentPath">
-          {currentPath.map((e, i) => {
+          {currentPathFormatter(currentPath).map((e, i) => {
             if (i == currentPath.length - 1)
-              return <span key={e.id}>{e.sectionName}</span>;
-            return `${e.sectionName} / `;
+              return <span key={e.id}>{nameFormatter(e.sectionName)}</span>;
+            return `${nameFormatter(e.sectionName)} / `;
           })}
         </div>
         <NotificationBar />

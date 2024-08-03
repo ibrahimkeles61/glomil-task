@@ -18,6 +18,39 @@ function Form() {
             <OptionInput key={i} label="favorite color" />
           ))}
       </div>
+
+      <div className="switchArea">
+        <div className="buttonLine">
+          <span className="switchAreaTitles">Active Switch</span>
+          <div className="switchButton">
+            <div className="switchButtonBall"></div>
+          </div>
+        </div>
+        <div className="colorsLine">
+          <span className="switchAreaTitles">Favorite color</span>
+          <div className="checkboxOptions">
+            <div className="checkboxOptionsLine">
+              <input type="checkbox" className="checkbox" />
+              <span>Label checkbox</span>
+            </div>
+
+            <div className="checkboxOptionsLine">
+              <input type="checkbox" className="checkbox" />
+              <span>Label checkbox</span>
+            </div>
+
+            <div className="checkboxOptionsLine">
+              <input type="checkbox" className="checkbox" />
+              <span>Label checkbox</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="buttons">
+        <button className="button acceptButton">Accept</button>
+        <button className="button cancelButton">Cancel</button>
+      </div>
     </div>
   );
 }

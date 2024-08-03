@@ -3,7 +3,10 @@ import "../Styles/OptionInput.css";
 import styled from "styled-components";
 import Triangle from "./Triangle";
 
-import { nameFormatter } from "../lib/generalFunctions";
+import {
+  nameFormatter,
+  nameFormatterJustFirstWord,
+} from "../lib/generalFunctions";
 
 function OptionInput({ label }) {
   const [colors, setColors] = useState([
@@ -37,7 +40,7 @@ function OptionInput({ label }) {
 
   return (
     <label className="optionInput" onClick={handleToggleOptions}>
-      <p className="optionInput--title">{nameFormatter(label)} </p>
+      <p className="optionInput--title">{nameFormatterJustFirstWord(label)} </p>
 
       <Select isOptionsOpen={isOptionsOpen}>
         {selectedValue} <Triangle isOptionsOpen={isOptionsOpen} />
@@ -98,13 +101,25 @@ const Option = styled.div`
   align-items: center;
   position: absolute;
   bottom: -${(props) => 39 + props.iterationForOptions}px;
-  background: var(--white) 0% 0% no-repeat padding-box;
+  background: var(--white);
   border-width: 0 1px ${({ isIhisLastOne }) => (isIhisLastOne ? "1px" : "0")}
     1px;
   border-color: var(---3170f9-blue600);
   border-style: solid;
   padding-left: 16px;
   gap: 7px;
+  z-index: 50;
+
+  font: var(--unnamed-font-style-normal) normal
+    var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--primary-262626);
+  text-align: left;
+  // font: normal normal normal 14px/20px Inter;
+  // letter-spacing: 0px;
+  // color: #262626;
+  opacity: 1;
 `;
 
 const ColorBall = styled.div`

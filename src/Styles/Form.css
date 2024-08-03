@@ -2,8 +2,7 @@
   width: 100%;
   height: auto;
   display: flex;
-
-  background-color: #ff000044;
+  flex-direction: column;
   margin-top: 30px;
 }
 
@@ -13,5 +12,120 @@
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
-  background-color: #ff0000;
+}
+
+.switchArea {
+  width: 252px;
+  display: inline;
+  height: auto;
+}
+
+.switchAreaTitles {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
+    var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--primary-262626);
+  text-align: left;
+  /* font: normal normal bold 14px/20px Inter;
+  letter-spacing: 0px;
+  color: #262626; */
+  opacity: 1;
+}
+
+.buttonLine {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.switchButton {
+  width: 48px;
+  height: 24px;
+  margin-left: 14px;
+  border: 2px solid var(---3170f9-blue600);
+  border-radius: 50px;
+  padding: 2px;
+}
+
+.switchButtonBall {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(---3170f9-blue600);
+}
+
+.colorsLine {
+  width: 100%;
+  display: flex;
+}
+
+.checkboxOptions {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  flex-grow: 1;
+  height: auto;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.checkboxOptionsLine {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.checkboxOptionsLine span {
+  font: var(--unnamed-font-style-normal) normal 500 var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--primary-262626);
+  text-align: left;
+  /* font: normal normal 600 14px/20px Inter;
+  letter-spacing: 0px;
+  color: #262626; */
+  opacity: 1;
+}
+
+.buttons {
+  width: 210px;
+  position: absolute;
+  right: 267px;
+  top: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  border: none;
+  border-radius: 4px;
+
+  font: var(--unnamed-font-style-normal) normal 600 var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--primary-262626);
+  text-align: left;
+  /* font: normal normal 600 14px/20px Inter;
+  letter-spacing: 0px;
+  color: #262626; */
+  opacity: 1;
+}
+
+.acceptButton {
+  background-color: var(---3170f9-blue600);
+  color: var(--white);
+}
+
+.cancelButton {
+  background-color: transparent;
 }
