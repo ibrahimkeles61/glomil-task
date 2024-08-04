@@ -1,5 +1,5 @@
 .header {
-  width: 1920px;
+  width: 100%;
   height: 104px;
   background: var(--main-background-color) 0% 0% no-repeat padding-box;
   padding: 34px 30px 0 30px;
@@ -7,19 +7,19 @@
   z-index: 100;
 }
 
-.content {
+.header--content {
   width: 100%;
   height: 100%;
   display: flex;
   position: relative;
 }
 
-.glomilLogo {
+.header--glomil-logo {
   /* width: 176.86px; */
   height: 35.93px;
 }
 
-.searchBarContainer {
+.header--searchbar-container {
   width: 845px;
   height: 40px;
   background: #fafbfc 0% 0% no-repeat padding-box;
@@ -32,32 +32,96 @@
   opacity: 1;
 }
 
-.searchIcon {
+.header--search-icon {
   width: 18px;
   height: 18.14px;
   fill: var(--search-icon-color);
 }
 
-.searchBar {
+.header--searchbar {
   color: var(--secondary);
   margin-left: 14px;
   width: inherit;
-  /* max-width: 795px; */
+  background-color: transparent;
+  border: none;
+  outline: none;
 
+  font: var(--unnamed-font-style-normal) normal
+    var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--primary-262626);
+  text-align: left;
+  /* font: normal normal normal 14px/20px Inter;
+letter-spacing: 0px;
+color: #262626; */
+  opacity: 1;
+}
+
+.header--searchbar::placeholder {
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
     var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--secondary);
   text-align: left;
-  font: normal normal normal 14px/20px Inter;
-  letter-spacing: 0px;
+  /* font: normal normal normal 14px/20px Inter;
+letter-spacing: 0px;
+color: #666666; */
   opacity: 1;
-  background-color: transparent;
-  border: none;
-  outline: none;
 }
 
-.searchBar::placeholder {
-  color: var(--secondary);
+@media screen and (max-width: 1918px) {
+  .header--searchbar-container {
+    /* width: 650px; */
+    width: clamp(34rem, 30rem + 20vw, 52rem);
+    margin-left: 100px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .header {
+    height: 96px;
+    padding: 30px 28px 0 28px;
+  }
+  .header--glomil-logo {
+    height: 32px;
+  }
+  .header--searchbar-container {
+    width: 550px;
+    margin-left: 100px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    height: 90px;
+    padding: 28px 25px 0 25px;
+  }
+  .header--searchbar-container {
+    width: 450px;
+    margin-left: 85px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    height: 80px;
+    padding: 25px 22px 0 22px;
+  }
+  .header--glomil-logo {
+    height: 29px;
+  }
+  .header--searchbar-container {
+    margin-left: 70px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

@@ -39,8 +39,10 @@ function OptionInput({ label }) {
     isOptionsOpen ? setIsOptionsOpen(false) : setIsOptionsOpen(true);
 
   return (
-    <label className="optionInput" onClick={handleToggleOptions}>
-      <p className="optionInput--title">{nameFormatterJustFirstWord(label)} </p>
+    <label className="option-input" onClick={handleToggleOptions}>
+      <p className="option-input--title">
+        {nameFormatterJustFirstWord(label)}{" "}
+      </p>
 
       <Select isOptionsOpen={isOptionsOpen}>
         {selectedValue} <Triangle isOptionsOpen={isOptionsOpen} />
@@ -76,6 +78,7 @@ const Select = styled.div`
   color: #262626; */
   opacity: 1;
 
+  width: 100%;
   height: 41px;
   padding: 0 14.83px 0 12px;
   border-radius: 4px;
@@ -92,6 +95,21 @@ const Select = styled.div`
       `;
     }
   }}
+
+  @media screen and (max-width: 1536px) {
+  }
+
+  @media screen and (max-width: 1280px) {
+  }
+
+  @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 640px) {
+  }
 `;
 
 const Option = styled.div`
@@ -102,8 +120,16 @@ const Option = styled.div`
   position: absolute;
   bottom: -${(props) => 39 + props.iterationForOptions}px;
   background: var(--white);
-  border-width: 0 1px ${({ isIhisLastOne }) => (isIhisLastOne ? "1px" : "0")}
-    1px;
+  border-width: 0 1px 0 1px;
+  ${(props) => {
+    if (props.isIhisLastOne) {
+      return `
+      border-width: 0 1px 1px 1px;
+      border-radius: 0px 0px 4px 4px;
+      `;
+    }
+  }}
+
   border-color: var(---3170f9-blue600);
   border-style: solid;
   padding-left: 16px;
@@ -120,6 +146,21 @@ const Option = styled.div`
   // letter-spacing: 0px;
   // color: #262626;
   opacity: 1;
+
+  @media screen and (max-width: 1536px) {
+  }
+
+  @media screen and (max-width: 1280px) {
+  }
+
+  @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 640px) {
+  }
 `;
 
 const ColorBall = styled.div`
@@ -127,4 +168,19 @@ const ColorBall = styled.div`
   height: 7px;
   border-radius: 50%;
   background-color: ${(props) => props.backgroundColor};
+
+  @media screen and (max-width: 1536px) {
+  }
+
+  @media screen and (max-width: 1280px) {
+  }
+
+  @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 640px) {
+  }
 `;

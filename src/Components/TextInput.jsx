@@ -5,14 +5,14 @@ import { makeFirstLetterCapital } from "../lib/generalFunctions";
 
 function TextInput({ label }) {
   return (
-    <div className="textInput">
-      <label htmlFor="text" className="label">
+    <div className="text-input">
+      <label htmlFor="text" className="text-input--label">
         {makeFirstLetterCapital(label)}
       </label>
       <input
         placeholder="Enter a Username"
         type="text"
-        className="text"
+        className="text-input--text"
         id="text"
       />
     </div>

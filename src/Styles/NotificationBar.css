@@ -1,4 +1,4 @@
-.notificationBar {
+.notification-bar {
   margin-top: 30px;
   width: calc(100% + (var(--notification-bar-border-width) * 2));
   display: flex;
@@ -25,13 +25,13 @@ color: #1F3A8A; */
   opacity: 1;
 }
 
-.notificationBarInfoIcon {
+.notification-bar--info-icon {
   width: 20px;
   height: 20px;
   fill: var(---1f3a8a-blue900);
 }
 
-.notificationBar span {
+.notification-bar span {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
     var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
     var(--unnamed-font-family-inter);
@@ -46,19 +46,43 @@ color: #1F3A8A; */
   margin-right: 4px;
 }
 
-.leftSide {
+.notification-bar--left-side {
   display: flex;
   align-items: center;
 }
 
-.rightSide {
+.notification-bar--right-side {
   display: flex;
   align-items: center;
 }
 
-.closeIcon {
+.notification-bar--close-icon {
   width: 12.79px;
   height: 12.79px;
   margin-left: 23.61px;
   fill: var(---1f3a8a-blue900);
+}
+
+@media screen and (max-width: 1536px) {
+}
+
+@media screen and (max-width: 1280px) {
+  .notification-bar {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .notification-bar {
+    font-size: var(--unnamed-font-size-12);
+  }
+  .notification-bar span {
+    font-size: var(--unnamed-font-size-12);
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

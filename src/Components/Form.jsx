@@ -6,7 +6,7 @@ import OptionInput from "./OptionInput";
 function Form() {
   return (
     <div className="form">
-      <div className="inputsArea">
+      <div className="form--inputs-area">
         {Array(6)
           .fill(0)
           .map((_, i) => (
@@ -18,38 +18,39 @@ function Form() {
             <OptionInput key={i} label="favorite color" />
           ))}
       </div>
-
-      <div className="switchArea">
-        <div className="buttonLine">
-          <span className="switchAreaTitles">Active Switch</span>
-          <div className="switchButton">
-            <div className="switchButtonBall"></div>
-          </div>
-        </div>
-        <div className="colorsLine">
-          <span className="switchAreaTitles">Favorite color</span>
-          <div className="checkboxOptions">
-            <div className="checkboxOptionsLine">
-              <input type="checkbox" className="checkbox" />
-              <span>Label checkbox</span>
-            </div>
-
-            <div className="checkboxOptionsLine">
-              <input type="checkbox" className="checkbox" />
-              <span>Label checkbox</span>
-            </div>
-
-            <div className="checkboxOptionsLine">
-              <input type="checkbox" className="checkbox" />
-              <span>Label checkbox</span>
+      <div className="form--bottom-section">
+        <div className="form--switch-area">
+          <div className="form--button-line">
+            <span className="form--switch-area-titles">Active Switch</span>
+            <div className="form--switch-button">
+              <div className="form--switch-button-ball"></div>
             </div>
           </div>
-        </div>
-      </div>
+          <div className="form--colors-line">
+            <span className="form--switch-area-titles">Favorite color</span>
+            <div className="form--checkbox-options">
+              <div className="form--checkbox-options-line">
+                <input type="checkbox" className="form--checkbox" />
+                <span>Label checkbox</span>
+              </div>
 
-      <div className="buttons">
-        <button className="button acceptButton">Accept</button>
-        <button className="button cancelButton">Cancel</button>
+              <div className="form--checkbox-options-line">
+                <input type="checkbox" className="form--checkbox" />
+                <span>Label checkbox</span>
+              </div>
+
+              <div className="form--checkbox-options-line">
+                <input type="checkbox" className="form--checkbox" />
+                <span>Label checkbox</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="form--buttons">
+          <button className="form--button form--accept-button">Accept</button>
+          <button className="form--button form--cancel-button">Cancel</button>
+        </div>
       </div>
     </div>
   );

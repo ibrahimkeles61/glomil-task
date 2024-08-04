@@ -1,12 +1,13 @@
 .form {
-  width: 100%;
+  width: 1320px;
   height: auto;
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+  /* background-color: aqua; */
 }
 
-.inputsArea {
+.form--inputs-area {
   width: 100%;
   height: auto;
   display: flex;
@@ -14,13 +15,27 @@
   flex-wrap: wrap;
 }
 
-.switchArea {
+.form--bottom-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form--switch-area {
   width: 252px;
-  display: inline;
+  /* display: inline; */
   height: auto;
 }
 
-.switchAreaTitles {
+.form--button-line {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.form--switch-area-titles {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
     var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
     var(--unnamed-font-family-inter);
@@ -33,15 +48,7 @@
   opacity: 1;
 }
 
-.buttonLine {
-  width: 100%;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 18px;
-}
-
-.switchButton {
+.form--switch-button {
   width: 48px;
   height: 24px;
   margin-left: 14px;
@@ -50,19 +57,19 @@
   padding: 2px;
 }
 
-.switchButtonBall {
+.form--switch-button-ball {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background-color: var(---3170f9-blue600);
 }
 
-.colorsLine {
+.form--colors-line {
   width: 100%;
   display: flex;
 }
 
-.checkboxOptions {
+.form--checkbox-options {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -70,18 +77,18 @@
   height: auto;
 }
 
-.checkbox {
+.form--checkbox {
   width: 20px;
   height: 20px;
 }
 
-.checkboxOptionsLine {
+.form--checkbox-options-line {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-.checkboxOptionsLine span {
+.form--checkbox-options-line span {
   font: var(--unnamed-font-style-normal) normal 500 var(--unnamed-font-size-14) /
     var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
   letter-spacing: var(--unnamed-character-spacing-0);
@@ -93,16 +100,17 @@
   opacity: 1;
 }
 
-.buttons {
+.form--buttons {
   width: 210px;
-  position: absolute;
+  /* position: absolute;
   right: 267px;
-  top: 750px;
+  top: 750px; */
   display: flex;
   justify-content: space-between;
+  margin-top: 75px;
 }
 
-.button {
+.form--button {
   width: 100px;
   height: 40px;
   display: grid;
@@ -121,11 +129,44 @@
   opacity: 1;
 }
 
-.acceptButton {
+.form--accept-button {
   background-color: var(---3170f9-blue600);
   color: var(--white);
 }
 
-.cancelButton {
+.form--cancel-button {
   background-color: transparent;
+}
+
+@media screen and (max-width: 1918px) {
+  .form {
+    width: 100%;
+  }
+  .form--bottom-section {
+    padding-right: clamp(100px, 50px + 5vw, 200px);
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .form--inputs-area {
+    margin-bottom: 30px;
+  }
+  .form--bottom-section {
+    padding-right: 150px;
+  }
+  .form--buttons {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

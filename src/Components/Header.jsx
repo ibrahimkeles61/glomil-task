@@ -6,11 +6,15 @@ import "../Styles/Header.css";
 function Header() {
   return (
     <div className="header">
-      <div className="content">
-        <img className="glomilLogo" src="assets/glomil-logo.png" alt="" />
-        <div className="searchBarContainer">
+      <div className="header--content">
+        <img
+          className="header--glomil-logo"
+          src="assets/glomil-logo.png"
+          alt=""
+        />
+        <div className="header--searchbar-container">
           <svg
-            className="searchIcon"
+            className="header--search-icon"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -22,7 +26,7 @@ function Header() {
           </svg>
           <input
             type="text"
-            className="searchBar"
+            className="header--searchbar"
             placeholder="Kaynakları, hizmetleri ve belgeleri arayın"
           />
         </div>

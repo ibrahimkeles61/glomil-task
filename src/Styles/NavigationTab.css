@@ -1,36 +1,36 @@
-.navigationTab {
+.navigation-tab {
   width: 211px;
   height: 45px;
   display: flex;
   align-items: center;
 }
 
-.tabIcon {
+.navigation-tab--tab-icon {
   margin-left: 9px;
 }
 
-.home-icon {
+.navigation-tab--home-icon {
   margin-left: 6px;
 }
 
-.micro-functions-icon {
+.navigation-tab--micro-functions-icon {
   margin-left: 11px;
 }
 
-.gateway-icon {
+.navigation-tab--gateway-icon {
   width: 18px;
   height: 18px;
 }
 
-.file-storage-icon {
+.navigation-tab--file-storage-icon {
   margin-left: 11px;
 }
 
-.application-manager-icon {
+.navigation-tab--application-manager-icon {
   margin-left: 11px;
 }
 
-.tabName {
+.navigation-tab--tab-name {
   margin-left: 15px;
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
@@ -41,4 +41,22 @@
   font: normal normal normal 14px/20px Inter;
   letter-spacing: 0px;
   opacity: 1;
+}
+
+@media screen and (max-width: 1536px) {
+}
+
+@media screen and (max-width: 1280px) {
+  .navigation-tab {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

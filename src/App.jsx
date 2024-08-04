@@ -1,20 +1,21 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Header from './Components/Header'
-import Navigation from './Components/Navigation'
-import HomePage from './Pages/HomePage'
+import Header from "./Components/Header";
+import Navigation from "./Components/Navigation";
+import HomePage from "./Pages/HomePage";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-
   return (
     <div className="app">
-      <Header/>
-      <Navigation/>
-      <HomePage/>
+      <div className="wrapper">
+        <Header />
+        <Navigation />
+        <HomePage />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

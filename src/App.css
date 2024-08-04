@@ -1,12 +1,33 @@
 .app {
-  width: var(--app-width);
+  width: 100%;
   height: var(--app-height);
   background-color: var(--white);
+  display: flex;
+  justify-content: center;
+}
 
+.wrapper {
+  width: 100%;
+  max-width: 1918px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .disable {
   display: none;
+}
+
+@media screen and (max-width: 1536px) {
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

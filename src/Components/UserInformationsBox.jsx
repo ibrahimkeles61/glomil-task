@@ -7,15 +7,17 @@ function UserInformationsBox() {
   const [userName, setUserName] = useState("murat tufan");
 
   return (
-    <div className="userInformationsBox">
-      <div className="textSection">
-        <p className="userName">{userName.toUpperCase()}</p>
-        <p className="email">murat.tufan@glomil.com</p>
+    <div className="userinformations-box">
+      <div className="userinformations-box--text-side">
+        <p className="userinformations-box--username">
+          {userName.toUpperCase()}
+        </p>
+        <p className="userinformations-box--email">murat.tufan@glomil.com</p>
       </div>
       {userPhoto ? (
-        <img src="" alt="" className="userPhoto" />
+        <img src="" alt="" className="userinformations-box--userphoto" />
       ) : (
-        <div className="logoForUserName">
+        <div className="userinformations-box--username-logo">
           <p>{takeFirstLetters(userName)}</p>
         </div>
       )}

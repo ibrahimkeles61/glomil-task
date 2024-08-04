@@ -1,11 +1,14 @@
-.userInformationsBox {
+.userinformations-box {
   height: 38px;
   position: absolute;
   right: 0;
   padding-right: 46px;
 }
 
-.userName {
+.userinformations-box--text-side {
+}
+
+.userinformations-box--username {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
     var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
     var(--unnamed-font-family-inter);
@@ -18,7 +21,7 @@
   opacity: 1;
 }
 
-.email {
+.userinformations-box--email {
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
     var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
@@ -31,7 +34,7 @@
   opacity: 1;
 }
 
-.logoForUserName {
+.userinformations-box--username-logo {
   position: absolute;
   top: 0;
   right: 0;
@@ -45,11 +48,29 @@
   border-radius: 50%;
 }
 
-.logoForUserName p {
+.userinformations-box--username-logo p {
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--white);
   text-align: left;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
+}
+
+@media screen and (max-width: 1536px) {
+}
+
+@media screen and (max-width: 1280px) {
+  .userinformations-box--text-side {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

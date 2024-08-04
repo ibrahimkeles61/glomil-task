@@ -9,6 +9,14 @@
 }
 
 :root {
+  /* break points according to tailwind */
+  --tofhd: 1918;
+  --dxl: 1536px;
+  --xl: 1280px;
+  --lg: 1024px;
+  --md: 768px;
+  --sm: 640px;
+
   /* Colors: */
   --shadow-color: #0000001a;
   --search-icon-color: #7a869a;

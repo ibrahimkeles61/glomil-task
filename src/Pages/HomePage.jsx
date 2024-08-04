@@ -63,9 +63,9 @@ function HomePage() {
   ]);
 
   return (
-    <div className="homePage">
-      <div className="pageContent">
-        <div className="currentPath">
+    <div className="home-page">
+      <div className="home-page--page-content">
+        <div className="home-page--current-path">
           {currentPathFormatter(currentPath).map((e, i) => {
             if (i == currentPath.length - 1)
               return <span key={e.id}>{nameFormatter(e.sectionName)}</span>;
@@ -73,9 +73,11 @@ function HomePage() {
           })}
         </div>
         <NotificationBar />
-        <p className="smallTitle">NG Apps Workflow</p>
-        <p className="title">Visual workflow automation.Now with code.</p>
-        <div className="titleStatement">
+        <p className="home-page--small-title">NG Apps Workflow</p>
+        <p className="home-page--title">
+          Visual workflow automation.Now with code.
+        </p>
+        <div className="home-page--title-statement">
           This is commonly used in the expressive type theme layouts for long
           paragraphs with more than four lines. The looser line height and
           larger size makes for comfortable, long-form reading, in mediums that

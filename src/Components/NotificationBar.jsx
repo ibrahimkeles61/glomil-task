@@ -3,10 +3,10 @@ import "../Styles/NotificationBar.css";
 
 function NotificationBar() {
   return (
-    <div className="notificationBar">
-      <div className="leftSide">
+    <div className="notification-bar">
+      <div className="notification-bar--left-side">
         <svg
-          className="notificationBarInfoIcon"
+          className="notification-bar--info-icon"
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
@@ -18,10 +18,10 @@ function NotificationBar() {
         </svg>
         <span>New updates:</span> Restart to get the latest updates.
       </div>
-      <div className="rightSide">
+      <div className="notification-bar--right-side">
         Learn more
         <svg
-          className="closeIcon"
+          className="notification-bar--close-icon"
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"

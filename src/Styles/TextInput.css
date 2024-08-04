@@ -1,4 +1,4 @@
-.textInput {
+.text-input {
   width: 420px;
   height: 70px;
   display: flex;
@@ -7,7 +7,7 @@
   margin: 0 20px 16px 0;
 }
 
-.label {
+.text-input--label {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
     var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
     var(--unnamed-font-family-inter);
@@ -20,7 +20,7 @@ color: #262626; */
   opacity: 1;
 }
 
-.text {
+.text-input--text {
   height: 41px;
   padding: 12px;
 
@@ -38,7 +38,7 @@ color: #262626; */
   border-radius: 4px;
 }
 
-.text::placeholder {
+.text-input--text::placeholder {
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
     var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
@@ -49,4 +49,40 @@ color: #262626; */
 letter-spacing: 0px;
 color: #979797; */
   opacity: 1;
+}
+
+@media screen and (max-width: 1918px) {
+  .text-input {
+    width: clamp(350px, 200px + 10vw, 420px);
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .text-input {
+    width: 290px;
+    height: 70px;
+    margin: 0 10px 20px 0;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .text-input {
+    height: 50px;
+    margin: 0 10px 20px 0;
+  }
+  .text-input--label {
+    margin-bottom: 5px;
+  }
+  .text-input--text {
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

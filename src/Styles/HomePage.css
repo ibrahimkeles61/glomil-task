@@ -1,16 +1,18 @@
-.homePage {
+.home-page {
   display: flex;
   flex-grow: 1;
   padding: 49px 0 0 82px;
+  /* background-color: black; */
 }
 
-.pageContent {
+.home-page--page-content {
   display: flex;
   flex-direction: column;
   width: 1500px;
+  /* background-color: yellowgreen; */
 }
 
-.currentPath {
+.home-page--current-path {
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
     var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
@@ -23,7 +25,7 @@
   opacity: 1;
 }
 
-.currentPath span {
+.home-page--current-path span {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
     var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
     var(--unnamed-font-family-inter);
@@ -35,7 +37,7 @@
   opacity: 1;
 }
 
-.smallTitle {
+.home-page--small-title {
   margin-top: 30px;
 
   font: var(--unnamed-font-style-normal) normal
@@ -50,7 +52,7 @@ color: #666666; */
   opacity: 1;
 }
 
-.title {
+.home-page--title {
   margin-top: 16px;
 
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
@@ -65,7 +67,7 @@ color: #262626; */
   opacity: 1;
 }
 
-.titleStatement {
+.home-page--title-statement {
   margin-top: 16px;
 
   font: var(--unnamed-font-style-normal) normal
@@ -78,4 +80,49 @@ color: #262626; */
 letter-spacing: 0px;
 color: #262626; */
   opacity: 1;
+}
+
+@media screen and (max-width: 1918px) {
+  .home-page {
+    padding-left: 55px;
+  }
+  .home-page--page-content {
+    width: clamp(1100px, 400px + 50vw, 1500px);
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .home-page .home-page--page-content {
+    width: clamp(900px, 400px + 40vw, 1100px);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .home-page {
+    padding: 30px 0 0 40px;
+  }
+  .home-page--page-content {
+    width: clamp(750px, 400px + 30vw, 1100px);
+  }
+  .home-page--small-title {
+    margin-top: 20px;
+  }
+  .home-page--title {
+    font-size: var(--unnamed-font-size-16);
+  }
+  .home-page--title-statement {
+    font-size: var(--unnamed-font-size-12);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home-page--page-content {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
 }

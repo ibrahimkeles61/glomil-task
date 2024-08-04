@@ -4,13 +4,13 @@ import { nameFormatter } from "../lib/generalFunctions";
 
 function NavigationTab({ tabName }) {
   return (
-    <div className="navigationTab">
+    <div className="navigation-tab">
       <img
-        className={`tabIcon ${tabName}-icon`}
+        className={`navigation-tab--tab-icon navigation-tab--${tabName}-icon`}
         src={`assets/${tabName}-icon.png`}
         alt=""
       />{" "}
-      <div className="tabName">{nameFormatter(tabName)}</div>
+      <div className="navigation-tab--tab-name">{nameFormatter(tabName)}</div>
     </div>
   );
 }

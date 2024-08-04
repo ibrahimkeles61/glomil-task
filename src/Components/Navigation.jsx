@@ -52,17 +52,17 @@ function Navigation() {
 
   return (
     <div className="navigation">
-      <div className="allServices">
+      <div className="navigation--allServices">
         <p>Tüm Hizmetler</p>
-        <div className="tabs">
+        <div className="navigation--tabs">
           {services.map((e) => (
             <NavigationTab key={e.id} tabName={e.sectionName} />
           ))}
         </div>
       </div>
-      <div className="categories">
+      <div className="navigation--categories">
         <p>Kategoriler</p>
-        <div className="tabs">
+        <div className="navigation--tabs">
           {categories.map((e) => (
             <NavigationTab key={e.id} tabName={e.sectionName} />
           ))}
