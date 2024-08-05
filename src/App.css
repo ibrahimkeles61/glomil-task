@@ -8,13 +8,31 @@
 
 .wrapper {
   width: 100%;
-  max-width: 1918px;
+  max-width: 1920px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.wrapper-without-header {
+  width: 100%;
+  height: calc(var(--app-height) - 104px);
+  display: flex;
 }
 
 .disable {
   display: none;
+}
+
+@media screen and (max-width: 1918px) {
+  .app {
+    min-height: 100vh;
+  }
+  .wrapper {
+    min-height: 100vh;
+  }
+  .wrapper-without-header {
+    height: 90vh;
+  }
 }
 
 @media screen and (max-width: 1536px) {

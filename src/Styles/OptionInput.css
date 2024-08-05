@@ -36,15 +36,26 @@
 
 @media screen and (max-width: 1280px) {
   .option-input {
-    height: 50px;
+    height: 60px;
+    width: clamp(270px, 28%, 290px);
+  }
+  .option-input--title {
+    margin-bottom: 5px;
   }
 }
 
 @media screen and (max-width: 1024px) {
+  .option-input {
+    width: 45%;
+  }
 }
 
 @media screen and (max-width: 768px) {
 }
 
 @media screen and (max-width: 640px) {
+  .option-input {
+    width: 90%;
+    margin-right: 0;
+  }
 }

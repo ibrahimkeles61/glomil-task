@@ -1,7 +1,7 @@
 .userinformations-box {
   height: 38px;
   position: absolute;
-  right: 0;
+  right: 30px;
   padding-right: 46px;
 }
 
@@ -55,6 +55,12 @@
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
+}
+
+@media screen and (max-width: 1918px) {
+  .userinformations-box {
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 1536px) {

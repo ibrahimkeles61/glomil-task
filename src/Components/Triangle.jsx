@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-function Triangle({ isOptionsOpen }) {
+function Triangle({ isOptionsOpen, styles }) {
   return (
-    <Main isOptionsOpen={isOptionsOpen}>
+    <Main isOptionsOpen={isOptionsOpen} styles={styles}>
       <LeftPart />
       <RightPart />
     </Main>
@@ -18,6 +18,7 @@ const Main = styled.div`
   display: flex;
   transform: ${({ isOptionsOpen }) =>
     isOptionsOpen ? "rotate(180deg)" : "none"};
+  ${({ styles }) => styles}
 `;
 
 const LeftPart = styled.div`

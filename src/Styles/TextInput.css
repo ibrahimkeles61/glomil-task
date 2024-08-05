@@ -67,8 +67,9 @@ color: #979797; */
 
 @media screen and (max-width: 1280px) {
   .text-input {
-    height: 50px;
+    height: 55px;
     margin: 0 10px 20px 0;
+    width: clamp(270px, 28%, 290px);
   }
   .text-input--label {
     margin-bottom: 5px;
@@ -79,10 +80,17 @@ color: #979797; */
 }
 
 @media screen and (max-width: 1024px) {
+  .text-input {
+    width: 45%;
+  }
 }
 
 @media screen and (max-width: 768px) {
 }
 
 @media screen and (max-width: 640px) {
+  .text-input {
+    width: 90%;
+    margin-right: 0;
+  }
 }

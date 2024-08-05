@@ -86,58 +86,78 @@ export default HeaderOptions;
 const HeaderOptionsContainer = styled.div`
   width: 150px;
   height: 40px;
-  position: absolute;
-  right: 250px;
+  // position: absolute;
+  // right: 280px;
+  margin-left: 300px;
 
   @media screen and (max-width: 1918px) {
-    right: 230px;
+    margin-left: 0px;
   }
 
   @media screen and (max-width: 1536px) {
   }
 
   @media screen and (max-width: 1280px) {
-    right: 50px;
+    // right: 100px;
   }
 
   @media screen and (max-width: 1024px) {
-    right: 70px;
-    width: 40px;
-    height: 150px;
-    top: 60px;
+    width: 50px;
+    height: 50px;
+    position: relative;
   }
 
   @media screen and (max-width: 768px) {
+    width: 35px;
+    height: 35px;
   }
 
   @media screen and (max-width: 640px) {
+    margin-right: 20px;
   }
 `;
 
 const HeaderOptionsToggleButton = styled.div`
   display: none;
-  position: absolute;
-  top: -90px;
-  right: -5px;
-  width: 50px;
+  // top: -50px;
+
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 
   @media screen and (max-width: 1024px) {
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
   }
 `;
 
 const HeaderOptionsWrapper = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  height: 100%;
 
   @media screen and (max-width: 1024px) {
     ${({ isHeaderOptionsOpen }) =>
-      isHeaderOptionsOpen ? "display:flex" : "display:none"};
+      isHeaderOptionsOpen ? "visibility:visible" : "visibility:hidden"};
+    position: absolute;
+    top: 50px;
+
+    width: 50px;
+    height: 200px;
 
     flex-direction: column;
+
+    background-color: var(--white);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 35px;
+    top: 35px;
   }
 `;

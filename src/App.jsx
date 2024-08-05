@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
@@ -11,8 +11,10 @@ function App() {
     <div className="app">
       <div className="wrapper">
         <Header />
-        <Navigation />
-        <HomePage />
+        <div className="wrapper-without-header">
+          <Navigation />
+          <HomePage />
+        </div>
       </div>
     </div>
   );

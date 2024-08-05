@@ -147,6 +147,10 @@ const Option = styled.div`
   // color: #262626;
   opacity: 1;
 
+  @media screen and (max-width: 1918px) {
+    width: 100%;
+  }
+
   @media screen and (max-width: 1536px) {
   }
 
