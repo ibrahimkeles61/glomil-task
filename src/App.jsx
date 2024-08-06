@@ -1,22 +1,18 @@
-import { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { changeIsOptionsOpen } from "./features/conditions/conditionsSlice";
+import "./App.css";
+import { Outlet } from "react-router-dom";
 
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import HomePage from "./Pages/HomePage";
 
-import "./App.css";
-
 function App() {
-  const dispatch = useDispatch();
   return (
     <div className="app">
       <div className="wrapper">
         <Header />
         <div className="wrapper-without-header">
           <Navigation />
-          <HomePage />
+          <Outlet />
         </div>
       </div>
     </div>

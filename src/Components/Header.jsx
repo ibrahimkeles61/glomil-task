@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import HeaderOptions from "./HeaderOptions";
 import UserInformationsBox from "./UserInformationsBox";
 import "../Styles/Header.css";
 import styled from "styled-components";
 import { nameFormatter } from "../lib/generalFunctions";
+import { addNewPageToPath } from "../features/pages/pagesSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+
   const services = useSelector((state) => state.tabsReducer.services);
   const categories = useSelector((state) => state.tabsReducer.categories);
 
@@ -25,6 +29,8 @@ function Header() {
         )
     );
   };
+
+  const handleAddToPath = (pageObj) => dispatch(addNewPageToPath(pageObj));
 
   return (
     <div className="header">
@@ -54,8 +60,14 @@ function Header() {
         {searchResults.length > 0 &&
           searchResults.length < services.length + categories.length && (
             <SearchResults searchResults={searchResults}>
-              {searchResults.map((e) => (
-                <SearchResult>{nameFormatter(e.sectionName)}</SearchResult>
+              {searchResults.map((tab) => (
+                <Link
+                  to={tab.sectionName}
+                  onClick={() => handleAddToPath(tab)}
+                  className="header--link"
+                >
+                  {nameFormatter(tab.sectionName)}
+                </Link>
               ))}
             </SearchResults>
           )}
@@ -78,18 +90,4 @@ const SearchResults = styled.div`
   left: 0;
   border-radius: 0 0 4px 4px;
   border: 1px solid var(--search-bar-container-color);
-`;
-
-const SearchResult = styled.div`
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding-left: 50px;
-
-  font: var(--unnamed-font-style-normal) normal
-    var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
-    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--secondary);
 `;

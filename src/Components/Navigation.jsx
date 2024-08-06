@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import "../Styles/Navigation.css";
@@ -39,7 +38,7 @@ function Navigation() {
         <p>Tüm Hizmetler</p>
         <div className="navigation--tabs">
           {services.map((e) => (
-            <NavigationTab key={e.id} tabName={e.sectionName} />
+            <NavigationTab key={e.id} tab={e} />
           ))}
         </div>
       </div>
@@ -47,7 +46,7 @@ function Navigation() {
         <p>Kategoriler</p>
         <div className="navigation--tabs">
           {categories.map((e) => (
-            <NavigationTab key={e.id} tabName={e.sectionName} />
+            <NavigationTab key={e.id} tab={e} />
           ))}
         </div>
       </div>
