@@ -3,7 +3,7 @@ import "../Styles/TextInput.css";
 
 import { makeFirstLetterCapital } from "../lib/generalFunctions";
 
-function TextInput({ label }) {
+function TextInput({ label, register, index }) {
   return (
     <div className="text-input">
       <label htmlFor="text" className="text-input--label">
@@ -14,6 +14,7 @@ function TextInput({ label }) {
         type="text"
         className="text-input--text"
         id="text"
+        {...register(`username${index + 1}`)}
       />
     </div>
   );

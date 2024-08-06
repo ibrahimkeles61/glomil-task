@@ -9,7 +9,7 @@ function NavigationTab({ tabName }) {
         className={`navigation-tab--tab-icon navigation-tab--${tabName}-icon`}
         src={`assets/${tabName}-icon.png`}
         alt=""
-      />{" "}
+      />
       <div className="navigation-tab--tab-name">{nameFormatter(tabName)}</div>
     </div>
   );

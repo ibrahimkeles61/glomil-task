@@ -1,62 +1,25 @@
 import React, { useEffect, useState } from "react";
-import "../Styles/Navigation.css";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import "../Styles/Navigation.css";
+import { changeWrapNavigation } from "../features/conditions/conditionsSlice";
 
 import NavigationTab from "./NavigationTab";
 import Triangle from "./Triangle";
 
 function Navigation() {
-  const [wrapNavigation, setWrapNavigation] = useState(true);
+  const dispatch = useDispatch();
 
-  const [services, setServices] = useState([
-    {
-      id: "pg1",
-      sectionName: "home",
-    },
-    {
-      id: "pg2",
-      sectionName: "studio",
-    },
-    {
-      id: "pg3",
-      sectionName: "datasources",
-    },
-    {
-      id: "pg4",
-      sectionName: "flow-machine",
-    },
-    {
-      id: "pg5",
-      sectionName: "micro-functions",
-    },
-    {
-      id: "pg6",
-      sectionName: "gateway",
-    },
-    {
-      id: "pg7",
-      sectionName: "file-storage",
-    },
-  ]);
+  const wrapNavigation = useSelector(
+    (state) => state.conditionsReducer.wrapNavigation
+  );
 
-  const [categories, setCategories] = useState([
-    {
-      id: "ctg1",
-      sectionName: "application-manager",
-    },
-    {
-      id: "ctg2",
-      sectionName: "monitoring",
-    },
-    {
-      id: "ctg3",
-      sectionName: "console",
-    },
-  ]);
+  const services = useSelector((state) => state.tabsReducer.services);
+  const categories = useSelector((state) => state.tabsReducer.categories);
 
-  const moveUpHandler = () => setWrapNavigation(true);
+  const moveUpHandler = () => dispatch(changeWrapNavigation(true));
 
-  const moveDownHandler = () => setWrapNavigation(false);
+  const moveDownHandler = () => dispatch(changeWrapNavigation(false));
 
   return (
     <NavigationContainer wrapNavigation={wrapNavigation}>

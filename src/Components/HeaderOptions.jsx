@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import "../Styles/HeaderOptions.css";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import "../Styles/HeaderOptions.css";
+import { changeIsHeaderOptionsOpen } from "../features/conditions/conditionsSlice";
 
 function HeaderOptions() {
-  const [isHeaderOptionsOpen, setIsHeaderOptionsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const isHeaderOptionsOpen = useSelector(
+    (state) => state.conditionsReducer.isHeaderOptionsOpen
+  );
 
   const headerOptionsVisibilityToggle = () =>
-    isHeaderOptionsOpen
-      ? setIsHeaderOptionsOpen(false)
-      : setIsHeaderOptionsOpen(true);
+    dispatch(changeIsHeaderOptionsOpen(!isHeaderOptionsOpen));
 
   return (
     <HeaderOptionsContainer onClick={headerOptionsVisibilityToggle}>
