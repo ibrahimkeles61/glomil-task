@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
   setFormValues,
-  resetFormValuesAndColor,
+  resetFormValuesAndColors,
 } from "../features/user/userSlice";
 import { changeShowFavoriteColors } from "../features/conditions/conditionsSlice";
 import TextInput from "./TextInput";
@@ -32,7 +32,7 @@ function Form() {
   const handleFavoriteColorsVisibility = () =>
     dispatch(changeShowFavoriteColors());
 
-  const handleCancel = () => dispatch(resetFormValuesAndColor());
+  const handleCancel = () => dispatch(resetFormValuesAndColors());
 
   const onSubmit = (data) => (dispatch(setFormValues(data)), reset());
 
@@ -42,7 +42,13 @@ function Form() {
         {Array(6)
           .fill(0)
           .map((_, i) => (
-            <TextInput key={i} label="username" index={i} register={register} />
+            <TextInput
+              key={i}
+              label="username"
+              index={i}
+              register={register}
+              errors={errors}
+            />
           ))}
         {Array(3)
           .fill(0)
@@ -66,10 +72,17 @@ function Form() {
           >
             <span className="form--switch-area-titles">Favorite color</span>
             <div className="form--checkbox-options">
-              {favoriteColors.map((_, i) => (
-                <div className="form--checkbox-options-line">
-                  <input type="checkbox" className="form--checkbox" />
-                  <span>{nameFormatterJustFirstWord(favoriteColors[i])}</span>
+              {favoriteColors.map((colorObj, i) => (
+                <div className="form--checkbox-options-line" key={colorObj.id}>
+                  <input
+                    type="checkbox"
+                    className="form--checkbox"
+                    // defaultChecked
+                    checked
+                  />
+                  <span>
+                    {nameFormatterJustFirstWord(favoriteColors[i].colorName)}
+                  </span>
                 </div>
               ))}
             </div>

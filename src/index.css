@@ -2,6 +2,20 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 } */
 
+/* yapılacaklar
+checkboxların state bağlantısı  ###############################################################
+text inputların doluluk kontrolü###############################################################
+option inputların doluluk kontrolü -----------------------------
+arama barı filtreleme işlemi###############################################################
+react router bağlantısı
+navigation ve arama barı router işlemleri
+sayfa geçmişi tutma
+firebase bağlantısı
+kullanıcı girişi ekranı
+kullanıcı kayıt ve giriş yapma
+veritabanı bağlantısı
+kullanıcı logosu menüsü */
+
 * {
   box-sizing: border-box;
   margin: 0;

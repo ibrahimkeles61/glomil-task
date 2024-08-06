@@ -49,10 +49,10 @@ export const userSlice = createSlice({
       console.log(state.formValues);
     },
     setFavoriteColors: (state, { payload }) => {
-      const { inputNumber, colorName } = payload;
-      state.favoriteColors[inputNumber] = colorName;
+      const { inputNumber, colorObj } = payload;
+      state.favoriteColors[inputNumber] = colorObj;
     },
-    resetFormValuesAndColor: (state) => {
+    resetFormValuesAndColors: (state) => {
       state.formValues = {
         username1: "",
         username2: "",
@@ -70,7 +70,7 @@ export const {
   setUserCredentials,
   setFormValues,
   setFavoriteColors,
-  resetFormValuesAndColor,
+  resetFormValuesAndColors,
 } = userSlice.actions;
 
 export default userSlice.reducer;

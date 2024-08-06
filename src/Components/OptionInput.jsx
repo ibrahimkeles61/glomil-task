@@ -8,6 +8,7 @@ import {
   nameFormatterJustFirstWord,
 } from "../lib/generalFunctions";
 import { setFavoriteColors } from "../features/user/userSlice";
+import { changeIsOptionsOpen } from "../features/conditions/conditionsSlice";
 
 function OptionInput({ label, inputNumber }) {
   const dispatch = useDispatch();
@@ -18,14 +19,18 @@ function OptionInput({ label, inputNumber }) {
   const selectedValue = useSelector(
     (state) => state.userReducer.favoriteColors[inputNumber]
   );
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+
+  // const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  const isOptionsOpen = useSelector(
+    (state) => state.conditionsReducer.isOptionsOpen[inputNumber - 1]
+  );
 
   const handleToggleOptions = () =>
-    isOptionsOpen ? setIsOptionsOpen(false) : setIsOptionsOpen(true);
+    dispatch(changeIsOptionsOpen({ optionInputNumber: inputNumber - 1 }));
 
   // const handleColorPick = () =>  dispatch(setFavoriteColors({color1:colors[2].colorName}))
-  const handleColorPick = (colorName) =>
-    dispatch(setFavoriteColors({ inputNumber, colorName }));
+  const handleColorPick = (colorObj) =>
+    dispatch(setFavoriteColors({ inputNumber, colorObj }));
 
   return (
     <label className="option-input" onClick={handleToggleOptions}>
@@ -33,7 +38,7 @@ function OptionInput({ label, inputNumber }) {
 
       <Select isOptionsOpen={isOptionsOpen} selectedValue={selectedValue}>
         {selectedValue
-          ? nameFormatterJustFirstWord(selectedValue)
+          ? nameFormatterJustFirstWord(selectedValue.colorName)
           : "Select An Option"}
         <Triangle isOptionsOpen={isOptionsOpen} />
       </Select>
@@ -44,7 +49,7 @@ function OptionInput({ label, inputNumber }) {
             key={colorObj.id}
             iterationForOptions={39 * i}
             isIhisLastOne={i == colorOptions.length - 1 && true}
-            onClick={() => handleColorPick(colorObj.colorName)}
+            onClick={() => handleColorPick(colorObj)}
           >
             <ColorBall backgroundColor={colorObj.variableName} />
             {nameFormatter(colorObj.colorName)}

@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import HeaderOptions from "./HeaderOptions";
 import UserInformationsBox from "./UserInformationsBox";
 import "../Styles/Header.css";
+import styled from "styled-components";
+import { nameFormatter } from "../lib/generalFunctions";
 
 function Header() {
+  const services = useSelector((state) => state.tabsReducer.services);
+  const categories = useSelector((state) => state.tabsReducer.categories);
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleFilter = (value) => {
+    setSearchResults(
+      services
+        .filter((e) =>
+          nameFormatter(e.sectionName).toLowerCase().includes(value)
+        )
+        .concat(
+          categories.filter((e) =>
+            nameFormatter(e.sectionName).toLowerCase().includes(value)
+          )
+        )
+    );
+  };
+
   return (
     <div className="header">
       <img
@@ -27,12 +49,47 @@ function Header() {
           type="text"
           className="header--searchbar"
           placeholder="Kaynakları, hizmetleri ve belgeleri arayın"
+          onChange={(e) => handleFilter(e.target.value)}
         />
+        {searchResults.length > 0 &&
+          searchResults.length < services.length + categories.length && (
+            <SearchResults searchResults={searchResults}>
+              {searchResults.map((e) => (
+                <SearchResult>{nameFormatter(e.sectionName)}</SearchResult>
+              ))}
+            </SearchResults>
+          )}
       </div>
       <HeaderOptions />
       <UserInformationsBox />
     </div>
   );
 }
-// width={176.86}
+
 export default Header;
+
+const SearchResults = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  bottom: -${({ searchResults }) => searchResults.length * 40}px;
+  background-color: #fafbfc;
+  left: 0;
+  border-radius: 0 0 4px 4px;
+  border: 1px solid var(--search-bar-container-color);
+`;
+
+const SearchResult = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+
+  font: var(--unnamed-font-style-normal) normal
+    var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--secondary);
+`;

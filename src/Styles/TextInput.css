@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 20px 16px 0;
+  position: relative;
 }
 
 .text-input--label {

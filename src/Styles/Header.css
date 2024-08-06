@@ -32,7 +32,8 @@
   border: 1px solid var(--search-bar-container-color);
   border-radius: 5px;
   opacity: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
+  position: relative;
 }
 
 .header--search-icon {
