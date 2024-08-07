@@ -21,6 +21,8 @@ function Form() {
     reset,
   } = useForm();
 
+  const formValues = useSelector((state) => state.userReducer.formValues);
+
   const favoriteColors = useSelector(
     (state) => state.userReducer.favoriteColors
   );
@@ -34,7 +36,11 @@ function Form() {
 
   const handleCancel = () => dispatch(resetFormValuesAndColors());
 
-  const onSubmit = (data) => (dispatch(setFormValues(data)), reset());
+  const onSubmit = (data) => {
+    dispatch(setFormValues(data));
+
+    reset();
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>

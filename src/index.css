@@ -1,21 +1,3 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-} */
-
-/* yapılacaklar
-checkboxların state bağlantısı  ###############################################################
-text inputların doluluk kontrolü###############################################################
-option inputların doluluk kontrolü -----------------------------
-arama barı filtreleme işlemi###############################################################
-react router bağlantısı###############################################################
-navigation ve arama barı router işlemleri###############################################################
-sayfa geçmişi tutma###############################################################
-firebase bağlantısı
-kullanıcı girişi ekranı
-kullanıcı kayıt ve giriş yapma
-veritabanı bağlantısı
-kullanıcı logosu menüsü */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,14 +5,6 @@ kullanıcı logosu menüsü */
 }
 
 :root {
-  /* break points according to tailwind */
-  --tofhd: 1918;
-  --dxl: 1536px;
-  --xl: 1280px;
-  --lg: 1024px;
-  --md: 768px;
-  --sm: 640px;
-
   /* Colors: */
   --shadow-color: #0000001a;
   --search-icon-color: #7a869a;

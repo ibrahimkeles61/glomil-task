@@ -135,6 +135,10 @@
   background-color: transparent;
 }
 
+.disabled {
+  display: none;
+}
+
 @media screen and (max-width: 1918px) {
   .form {
     width: 100%;

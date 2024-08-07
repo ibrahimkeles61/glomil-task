@@ -1,7 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentPath: [],
+  currentPath: [
+    {
+      id: "pg2",
+      sectionName: "studio",
+    },
+    {
+      id: "pg3",
+      sectionName: "datasources",
+    },
+    {
+      id: "pg4",
+      sectionName: "flow-machine",
+    },
+    {
+      id: "pg5",
+      sectionName: "micro-functions",
+    },
+    {
+      id: "pg1",
+      sectionName: "home",
+    },
+  ],
 };
 
 export const pagesSlice = createSlice({

@@ -46,11 +46,21 @@ export const userSlice = createSlice({
     },
     setFormValues: (state, { payload }) => {
       state.formValues = payload;
-      console.log(state.formValues);
+
+      localStorage.setItem(
+        "userInstance",
+        JSON.stringify({
+          formValues: state.formValues,
+          favoriteColor: state.favoriteColors,
+        })
+      );
     },
     setFavoriteColors: (state, { payload }) => {
       const { inputNumber, colorObj } = payload;
       state.favoriteColors[inputNumber] = colorObj;
+    },
+    takeColorsFromStorage: (state, { payload }) => {
+      state.favoriteColors = payload;
     },
     resetFormValuesAndColors: (state) => {
       state.formValues = {
@@ -71,6 +81,7 @@ export const {
   setFormValues,
   setFavoriteColors,
   resetFormValuesAndColors,
+  takeColorsFromStorage,
 } = userSlice.actions;
 
 export default userSlice.reducer;
