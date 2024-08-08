@@ -1,9 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "../Styles/TextInput.css";
 
 import { makeFirstLetterCapital } from "../lib/generalFunctions";
+import { setAFormValue } from "../features/user/userSlice";
 
-function TextInput({ label, register, index, errors }) {
+function TextInput({ label, index }) {
+  const dispatch = useDispatch();
+
+  const formValue = useSelector(
+    (state) => state.userReducer.formValues[`username${index + 1}`]
+  );
+
   return (
     <div className="text-input">
       <label htmlFor="text" className="text-input--label">
@@ -14,11 +22,15 @@ function TextInput({ label, register, index, errors }) {
         type="text"
         className="text-input--text"
         id="text"
-        {...register(`username${index + 1}`, { required: true })}
+        value={formValue}
+        onChange={(e) =>
+          dispatch(setAFormValue({ index, value: e.target.value }))
+        }
+        // {...register(`username${index + 1}`, { required: true })}
       />
-      {errors[`username${index + 1}`] && (
+      {/* {errors[`username${index + 1}`] && (
         <p className="error-message-under-input">This name is required</p>
-      )}
+      )} */}
     </div>
   );
 }

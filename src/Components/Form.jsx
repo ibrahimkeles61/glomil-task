@@ -4,22 +4,27 @@ import "../Styles/Form.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
-  setFormValues,
+  deleteAColor,
   resetFormValuesAndColors,
 } from "../features/user/userSlice";
 import { changeShowFavoriteColors } from "../features/conditions/conditionsSlice";
 import TextInput from "./TextInput";
 import OptionInput from "./OptionInput";
 import { nameFormatterJustFirstWord } from "../lib/generalFunctions";
+import { db, doc, setDoc } from "../firebase";
 
 function Form() {
   const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  //   reset,
+  // } = useForm();
+
+  const userName = useSelector((state) => state.userReducer.userName);
+
+  const userEmail = useSelector((state) => state.userReducer.userEmail);
 
   const formValues = useSelector((state) => state.userReducer.formValues);
 
@@ -36,13 +41,25 @@ function Form() {
 
   const handleCancel = () => dispatch(resetFormValuesAndColors());
 
-  const onSubmit = (data) => {
-    dispatch(setFormValues(data));
-    reset();
+  const handleDeleteColor = (id) => dispatch(deleteAColor(id));
+
+  const saveDataOnFireStore = async () => {
+    await setDoc(doc(db, "users", "Ap0gTDiMrLSVj9Stlk63"), {
+      userName,
+      userEmail,
+      formValues,
+      favoriteColors,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    // dispatch(setFormValues(data));
+    saveDataOnFireStore();
+    e.preventDefault();
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="form--inputs-area">
         {Array(6)
           .fill(0)
@@ -51,8 +68,8 @@ function Form() {
               key={i}
               label="username"
               index={i}
-              register={register}
-              errors={errors}
+              // register={register}
+              // errors={errors}
             />
           ))}
         {Array(3)
@@ -65,12 +82,12 @@ function Form() {
         <div className="form--switch-area">
           <div className="form--button-line">
             <span className="form--switch-area-titles">Active Switch</span>
-            <div
-              className="form--switch-button"
+            <FormSwitchButton
               onClick={handleFavoriteColorsVisibility}
+              showFavoriteColors={showFavoriteColors}
             >
               <FormSwitchButtonBall showFavoriteColors={showFavoriteColors} />
-            </div>
+            </FormSwitchButton>
           </div>
           <div
             className={`form--colors-line ${!showFavoriteColors && "disabled"}`}
@@ -82,8 +99,8 @@ function Form() {
                   <input
                     type="checkbox"
                     className="form--checkbox"
-                    // defaultChecked
-                    checked
+                    defaultChecked
+                    onChange={() => handleDeleteColor(colorObj.id)}
                   />
                   <span>{nameFormatterJustFirstWord(colorObj.colorName)}</span>
                 </div>
@@ -110,16 +127,34 @@ function Form() {
 
 export default Form;
 
+const FormSwitchButton = styled.div`
+  width: 48px;
+  height: 24px;
+  margin-left: 14px;
+  border: 2px solid var(--disabled);
+  border-radius: 50px;
+  padding: 2px;
+  cursor: pointer;
+  ${({ showFavoriteColors }) => {
+    if (showFavoriteColors) {
+      return `
+     border-color: var(---3170f9-blue600); 
+      `;
+    }
+  }}
+`;
+
 const FormSwitchButtonBall = styled.div`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(---3170f9-blue600);
+  background-color: var(--disabled);
   transition: 0.35s ease;
   ${({ showFavoriteColors }) => {
     if (showFavoriteColors) {
       return `
       transform: translateX(24px);
+  background-color: var(---3170f9-blue600);
       `;
     }
   }}

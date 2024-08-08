@@ -12,6 +12,9 @@ function UserInformationsBox() {
   const userEmail = useSelector((state) => state.userReducer.userEmail);
 
   const formValues = useSelector((state) => state.userReducer.formValues);
+  // const favoriteColors = useSelector(
+  //   (state) => state.userReducer.favoriteColors
+  // );
 
   return (
     <div className="userinformations-box">
@@ -36,6 +39,11 @@ function UserInformationsBox() {
                   Username {i + 1}: {e[1]}
                 </p>
               ))}
+              {/* {favoriteColors.map((e) => (
+                <p>
+                  {e.colorName} {e.inputIndex}
+                </p>
+              ))} */}
             </StateInformations>
           )}
         </div>
@@ -52,7 +60,8 @@ const StateInformations = styled.div`
   height: 250px;
   background-color: var(---f9f9f9-grey50);
   bottom: -260px;
-  left: -179px;
+  // left: -179px;
+  left: -200px;
   border-radius: 4px;
   border: 1px solid var(--search-bar-container-color);
   display: flex;
