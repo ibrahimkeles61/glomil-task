@@ -7,43 +7,40 @@ import {
   nameFormatter,
   nameFormatterJustFirstWord,
 } from "../lib/generalFunctions";
-import { setFavoriteColors } from "../features/user/userSlice";
+import { addAFavoriteColor } from "../features/user/userSlice";
 import { changeIsOptionsOpen } from "../features/conditions/conditionsSlice";
 
-function OptionInput({ label, inputNumber }) {
+function OptionInput({ label, inputIndex }) {
   const dispatch = useDispatch();
 
   const colorOptions = useSelector((state) => state.userReducer.colorOptions);
 
-  // const [selectedValue, setSelectedValue] = useState("Select An Option");
-  const selectedValue = useSelector(
-    (state) => state.userReducer.favoriteColors[inputNumber]
+  const selectedColorObj = useSelector((state) =>
+    state.userReducer.favoriteColors.find((e) => e.inputIndex == inputIndex)
+  );
+  const isOptionsOpen = useSelector((state) =>
+    state.conditionsReducer.isOptionsOpen.find(
+      (e) => e.inputIndex == inputIndex
+    )
   );
 
-  // const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const isOptionsOpen = useSelector(
-    (state) => state.conditionsReducer.isOptionsOpen[inputNumber - 1]
-  );
+  const handleToggleOptions = () => dispatch(changeIsOptionsOpen(inputIndex));
 
-  const handleToggleOptions = () =>
-    dispatch(changeIsOptionsOpen({ optionInputNumber: inputNumber - 1 }));
-
-  // const handleColorPick = () =>  dispatch(setFavoriteColors({color1:colors[2].colorName}))
   const handleColorPick = (colorObj) =>
-    dispatch(setFavoriteColors({ inputNumber, colorObj }));
+    dispatch(addAFavoriteColor({ inputIndex, ...colorObj }));
 
   return (
     <label className="option-input" onClick={handleToggleOptions}>
       <p className="option-input--title">{nameFormatterJustFirstWord(label)}</p>
 
-      <Select isOptionsOpen={isOptionsOpen} selectedValue={selectedValue}>
-        {selectedValue
-          ? nameFormatterJustFirstWord(selectedValue.colorName)
+      <Select isOptionsOpen={isOptionsOpen} selectedColorObj={selectedColorObj}>
+        {selectedColorObj
+          ? nameFormatterJustFirstWord(selectedColorObj.colorName)
           : "Select An Option"}
-        <Triangle isOptionsOpen={isOptionsOpen} />
+        <Triangle isOptionsOpen={isOptionsOpen.condition} />
       </Select>
 
-      {isOptionsOpen &&
+      {isOptionsOpen.condition &&
         colorOptions.map((colorObj, i) => (
           <Option
             key={colorObj.id}
@@ -82,8 +79,8 @@ const Select = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${(props) => {
-    if (props.isOptionsOpen) {
+  ${({ isOptionsOpen, selectedColorObj }) => {
+    if (isOptionsOpen.condition) {
       return `
       background: var(--white) 0% 0% no-repeat padding-box;
       border: 1px solid var(---3170f9-blue600);
@@ -91,7 +88,7 @@ const Select = styled.div`
       opacity: 1;
       `;
     }
-    if (props.selectedValue) {
+    if (selectedColorObj) {
       return `
       background: var(--white);
       border: 1px solid var(--primary);

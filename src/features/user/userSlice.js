@@ -11,7 +11,14 @@ const initialState = {
     username5: "",
     username6: "",
   },
-  favoriteColors: [],
+  favoriteColors: [
+    // {
+    //   inputId: 1,
+    //   id: "clr1",
+    //   colorName: "orange",
+    //   variableName: "var(---f59e0c-yellow550)",
+    // },
+  ],
   colorOptions: [
     {
       id: "clr1",
@@ -55,11 +62,10 @@ export const userSlice = createSlice({
         })
       );
     },
-    setFavoriteColors: (state, { payload }) => {
-      const { inputNumber, colorObj } = payload;
-      state.favoriteColors[inputNumber] = colorObj;
+    addAFavoriteColor: (state, { payload }) => {
+      state.favoriteColors.push(payload);
     },
-    takeColorsFromStorage: (state, { payload }) => {
+    setFavoriteColors: (state, { payload }) => {
       state.favoriteColors = payload;
     },
     resetFormValuesAndColors: (state) => {
@@ -79,9 +85,9 @@ export const userSlice = createSlice({
 export const {
   setUserCredentials,
   setFormValues,
+  addAFavoriteColor,
   setFavoriteColors,
   resetFormValuesAndColors,
-  takeColorsFromStorage,
 } = userSlice.actions;
 
 export default userSlice.reducer;

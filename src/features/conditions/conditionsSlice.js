@@ -4,7 +4,11 @@ const initialState = {
   wrapNavigation: true,
   isHeaderOptionsOpen: false,
   showFavoriteColors: false,
-  isOptionsOpen: [false, false, false],
+  isOptionsOpen: [
+    { inputIndex: 0, condition: false },
+    { inputIndex: 1, condition: false },
+    { inputIndex: 2, condition: false },
+  ],
 };
 
 export const conditionsSlice = createSlice({
@@ -23,10 +27,15 @@ export const conditionsSlice = createSlice({
       state.showFavoriteColors = !state.showFavoriteColors;
     },
     changeIsOptionsOpen: (state, { payload }) => {
-      const { optionInputNumber } = payload;
-
-      state.isOptionsOpen[optionInputNumber] =
-        !state.isOptionsOpen[optionInputNumber];
+      if (typeof payload == "number") {
+        state.isOptionsOpen.find((e) => e.inputIndex == payload).condition =
+          !state.isOptionsOpen.find((e) => e.inputIndex == payload).condition;
+      }
+      //  else {
+      //   state.isOptionsOpen = state.isOptionsOpen.map((e) => {
+      //     return { inputIndex: e.inputIndex, condition: false };
+      //   });
+      // }
     },
   },
 });

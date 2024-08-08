@@ -38,7 +38,6 @@ function Form() {
 
   const onSubmit = (data) => {
     dispatch(setFormValues(data));
-
     reset();
   };
 
@@ -59,7 +58,7 @@ function Form() {
         {Array(3)
           .fill(0)
           .map((_, i) => (
-            <OptionInput key={i} label="favorite color" inputNumber={i + 1} />
+            <OptionInput key={i} label="favorite color" inputIndex={i} />
           ))}
       </div>
       <div className="form--bottom-section">
@@ -78,7 +77,7 @@ function Form() {
           >
             <span className="form--switch-area-titles">Favorite color</span>
             <div className="form--checkbox-options">
-              {favoriteColors.map((colorObj, i) => (
+              {favoriteColors.map((colorObj) => (
                 <div className="form--checkbox-options-line" key={colorObj.id}>
                   <input
                     type="checkbox"
@@ -86,9 +85,7 @@ function Form() {
                     // defaultChecked
                     checked
                   />
-                  <span>
-                    {nameFormatterJustFirstWord(favoriteColors[i].colorName)}
-                  </span>
+                  <span>{nameFormatterJustFirstWord(colorObj.colorName)}</span>
                 </div>
               ))}
             </div>

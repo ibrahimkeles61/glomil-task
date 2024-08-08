@@ -6,10 +6,8 @@ import { useDispatch } from "react-redux";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 
-import {
-  setFormValues,
-  takeColorsFromStorage,
-} from "./features/user/userSlice";
+import { setFormValues, setFavoriteColors } from "./features/user/userSlice";
+import { changeIsOptionsOpen } from "./features/conditions/conditionsSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +16,7 @@ function App() {
     if (localStorage.getItem("userInstance")) {
       const storage = JSON.parse(localStorage.getItem("userInstance"));
       dispatch(setFormValues(storage.formValues));
-      // dispatch(takeColorsFromStorage(storage.favoriteColors));
+      // dispatch(setFavoriteColors(storage.favoriteColors));
     }
   });
 
