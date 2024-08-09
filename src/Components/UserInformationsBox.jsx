@@ -13,9 +13,9 @@ function UserInformationsBox() {
   const userEmail = useSelector((state) => state.userReducer.userEmail);
 
   const formValues = useSelector((state) => state.userReducer.formValues);
-  // const favoriteColors = useSelector(
-  //   (state) => state.userReducer.favoriteColors
-  // );
+  const favoriteColors = useSelector(
+    (state) => state.userReducer.favoriteColors
+  );
 
   const handleLogOut = async () => {
     signOut(auth).catch((err) => console.log(err.message));
@@ -44,11 +44,11 @@ function UserInformationsBox() {
                   Username {i + 1}: {e[1]}
                 </p>
               ))}
-              {/* {favoriteColors.map((e) => (
+              {favoriteColors.map((e) => (
                 <p>
-                  {e.colorName} {e.inputIndex}
+                  Color {e.inputIndex + 1}: {e.colorName}
                 </p>
-              ))} */}
+              ))}
               <button
                 className="userinformations-box--logout-button"
                 onClick={handleLogOut}
@@ -68,9 +68,9 @@ export default UserInformationsBox;
 const StateInformations = styled.div`
   position: absolute;
   width: 290px;
-  height: 250px;
+  height: 300px;
   background-color: var(---f9f9f9-grey50);
-  bottom: -260px;
+  bottom: -310px;
   // left: -179px;
   left: -250px;
   border-radius: 4px;
