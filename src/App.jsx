@@ -15,24 +15,6 @@ import {
 import { db, doc, getDoc, auth, onAuthStateChanged } from "./firebase";
 
 const LoggedInStack = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const getDataFromFireStore = async () => {
-      const docSnap = await getDoc(doc(db, "users", auth.currentUser?.uid));
-
-      if (docSnap.exists()) {
-        const { userName, userEmail, formValues, favoriteColors } =
-          await docSnap.data();
-
-        // dispatch(setUserCredentials({ userName, userEmail }));
-        dispatch(setFormValues(formValues));
-        dispatch(setFavoriteColors(favoriteColors));
-      }
-    };
-    getDataFromFireStore();
-  });
-
   return (
     <div className="wrapper">
       <Header />
@@ -45,14 +27,33 @@ const LoggedInStack = () => {
 };
 
 function App() {
+  const dispatch = useDispatch();
   const [loggedIn, setLoggedIn] = useState(true);
 
   useEffect(() => {
+    const getDataFromFireStore = async () => {
+      const docSnap = await getDoc(doc(db, "users", auth.currentUser?.uid));
+
+      if (docSnap.exists()) {
+        const { userName, userEmail, formValues, favoriteColors } =
+          await docSnap.data();
+
+        if (userName !== "" && userEmail !== "") {
+          dispatch(setUserCredentials({ userName, userEmail }));
+        }
+
+        formValues && dispatch(setFormValues(formValues));
+        favoriteColors && dispatch(setFavoriteColors(favoriteColors));
+      }
+    };
+
     const monitorAuthState = async () => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           console.log("giris yapildi: user is => ", user);
           setLoggedIn(true);
+
+          getDataFromFireStore();
         } else {
           console.log("giris yapilamadi");
           setLoggedIn(false);

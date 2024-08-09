@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { setUserCredentials } from "../features/user/userSlice";
 import {
   auth,
+  setDoc,
+  doc,
+  db,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "../firebase";
@@ -15,22 +18,30 @@ function LoginOrSignUp() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const sendUserCredentials = async () => {
+    await setDoc(doc(db, "users", auth.currentUser?.uid), {
+      userName: username,
+      userEmail: email,
+    });
+  };
+
   const handleSignUp = async () =>
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         // signed up
-        const user = userCredentials.user;
-        // console.log(user);
+        // const user = userCredentials.user;
+        dispatch(setUserCredentials({ userName: username, userEmail: email }));
+        sendUserCredentials();
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
       });
 
   const handleLogin = async () =>
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        // signed up
+        // logged in
         // const user = userCredentials.user;
         dispatch(setUserCredentials({ userName: username, userEmail: email }));
       })
