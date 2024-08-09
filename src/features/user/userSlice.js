@@ -54,17 +54,16 @@ export const userSlice = createSlice({
       state.userEmail = payload.userEmail;
     },
     setAFormValue: (state, { payload }) => {
-      const { index, value } = payload;
-      state.formValues[`username${index + 1}`] = value;
+      const { e } = payload;
+      state.formValues[e.target.name] = e.target.value;
     },
-    setFormValues: (state, { payload }) => {
+    setFormValuesToState: (state, { payload }) => {
       state.formValues = payload;
     },
     addAFavoriteColor: (state, { payload }) => {
       const ifInputsAreTheSame = state.favoriteColors.findIndex(
         (e) => e.inputIndex == payload.inputIndex
       );
-
       ifInputsAreTheSame == -1
         ? state.favoriteColors.push(payload)
         : (state.favoriteColors[ifInputsAreTheSame] = payload);
@@ -78,15 +77,7 @@ export const userSlice = createSlice({
       );
       state.favoriteColors.splice(deleteThisIndex, 1);
     },
-    resetFormValuesAndColors: (state) => {
-      state.formValues = {
-        username1: "",
-        username2: "",
-        username3: "",
-        username4: "",
-        username5: "",
-        username6: "",
-      };
+    resetColors: (state) => {
       state.favoriteColors = [];
     },
   },
@@ -95,11 +86,11 @@ export const userSlice = createSlice({
 export const {
   setUserCredentials,
   setAFormValue,
-  setFormValues,
+  setFormValuesToState,
   addAFavoriteColor,
   setFavoriteColors,
   deleteAColor,
-  resetFormValuesAndColors,
+  resetColors,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -9,7 +9,7 @@ import LoginOrSignUp from "./Pages/LoginOrSignUp";
 
 import {
   setUserCredentials,
-  setFormValues,
+  setFormValuesToState,
   setFavoriteColors,
 } from "./features/user/userSlice";
 import { db, doc, getDoc, auth, onAuthStateChanged } from "./firebase";
@@ -42,7 +42,7 @@ function App() {
           dispatch(setUserCredentials({ userName, userEmail }));
         }
 
-        formValues && dispatch(setFormValues(formValues));
+        formValues && dispatch(setFormValuesToState(formValues));
         favoriteColors && dispatch(setFavoriteColors(favoriteColors));
       }
     };
@@ -50,12 +50,9 @@ function App() {
     const monitorAuthState = async () => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          console.log("giris yapildi: user is => ", user);
           setLoggedIn(true);
-
           getDataFromFireStore();
         } else {
-          console.log("giris yapilamadi");
           setLoggedIn(false);
         }
       });

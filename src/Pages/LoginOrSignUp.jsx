@@ -14,9 +14,9 @@ import {
 function LoginOrSignUp() {
   const dispatch = useDispatch();
   const [loginPage, setLoginPage] = useState(true);
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const sendUserCredentials = async () => {
     await setDoc(doc(db, "users", auth.currentUser?.uid), {
@@ -30,7 +30,7 @@ function LoginOrSignUp() {
       .then((userCredentials) => {
         // signed up
         // const user = userCredentials.user;
-        dispatch(setUserCredentials({ userName: username, userEmail: email }));
+        // dispatch(setUserCredentials({ userName: username, userEmail: email }));
         sendUserCredentials();
       })
       .catch((error) => {
@@ -43,7 +43,7 @@ function LoginOrSignUp() {
       .then((userCredentials) => {
         // logged in
         // const user = userCredentials.user;
-        dispatch(setUserCredentials({ userName: username, userEmail: email }));
+        // dispatch(setUserCredentials({ userName: username, userEmail: email }));
       })
       .catch((error) => {
         const errorCode = error.code;

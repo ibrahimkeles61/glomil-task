@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "../Styles/Form.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
 import {
   deleteAColor,
-  resetFormValuesAndColors,
+  setFormValuesToState,
+  resetColors,
 } from "../features/user/userSlice";
 import { changeShowFavoriteColors } from "../features/conditions/conditionsSlice";
 import TextInput from "./TextInput";
@@ -15,18 +15,26 @@ import { db, doc, setDoc, auth } from "../firebase";
 
 function Form() {
   const dispatch = useDispatch();
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  //   reset,
-  // } = useForm();
 
   const userName = useSelector((state) => state.userReducer.userName);
 
   const userEmail = useSelector((state) => state.userReducer.userEmail);
 
-  const formValues = useSelector((state) => state.userReducer.formValues);
+  const [formValues, setFormValues] = useState({
+    username1: "",
+    username2: "",
+    username3: "",
+    username4: "",
+    username5: "",
+    username6: "",
+  });
+
+  const handleSetFormValues = (e) => {
+    setFormValues((currentValues) => ({
+      ...currentValues,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const favoriteColors = useSelector(
     (state) => state.userReducer.favoriteColors
@@ -39,7 +47,17 @@ function Form() {
   const handleFavoriteColorsVisibility = () =>
     dispatch(changeShowFavoriteColors());
 
-  const handleCancel = () => dispatch(resetFormValuesAndColors());
+  const handleCancel = () => (
+    setFormValues({
+      username1: "",
+      username2: "",
+      username3: "",
+      username4: "",
+      username5: "",
+      username6: "",
+    }),
+    dispatch(resetColors())
+  );
 
   const handleDeleteColor = (id) => dispatch(deleteAColor(id));
 
@@ -53,9 +71,10 @@ function Form() {
   };
 
   const handleSubmit = (e) => {
-    // dispatch(setFormValues(data));
-    saveDataOnFireStore();
     e.preventDefault();
+    saveDataOnFireStore();
+    dispatch(setFormValuesToState(formValues));
+    handleCancel();
   };
 
   return (
@@ -68,8 +87,8 @@ function Form() {
               key={i}
               label="username"
               index={i}
-              // register={register}
-              // errors={errors}
+              value={formValues[`username${i + 1}`]}
+              sendSetFormValues={(e) => handleSetFormValues(e)}
             />
           ))}
         {Array(3)
