@@ -60,19 +60,23 @@ function LoginOrSignUp() {
     <div className="login-or-signup">
       <div className="login-or-signup--content">
         <div className="login-or-signup--inputs">
-          <label
-            htmlFor="login-or-signup--username"
-            className="login-or-signup--label"
-          >
-            Username
-          </label>
-          <input
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            id="login-or-signup--email"
-            className="login-or-signup--input"
-          />
+          {!loginPage && (
+            <>
+              <label
+                htmlFor="login-or-signup--username"
+                className="login-or-signup--label"
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                id="login-or-signup--email"
+                className="login-or-signup--input"
+              />
+            </>
+          )}
           <label
             htmlFor="login-or-signup--email"
             className="login-or-signup--label"
