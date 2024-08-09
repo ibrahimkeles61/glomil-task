@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "../Styles/UserInformationsBox.css";
 import { takeFirstLetters } from "../lib/generalFunctions";
 import styled from "styled-components";
+import { auth, signOut } from "../firebase";
 
 function UserInformationsBox() {
   const [userPhoto, setUserPhoto] = useState(false);
@@ -15,6 +16,10 @@ function UserInformationsBox() {
   // const favoriteColors = useSelector(
   //   (state) => state.userReducer.favoriteColors
   // );
+
+  const handleLogOut = async () => {
+    signOut(auth).catch((err) => console.log(err.message));
+  };
 
   return (
     <div className="userinformations-box">
@@ -44,6 +49,12 @@ function UserInformationsBox() {
                   {e.colorName} {e.inputIndex}
                 </p>
               ))} */}
+              <button
+                className="userinformations-box--logout-button"
+                onClick={handleLogOut}
+              >
+                Logout
+              </button>
             </StateInformations>
           )}
         </div>
@@ -61,17 +72,18 @@ const StateInformations = styled.div`
   background-color: var(---f9f9f9-grey50);
   bottom: -260px;
   // left: -179px;
-  left: -200px;
+  left: -250px;
   border-radius: 4px;
   border: 1px solid var(--search-bar-container-color);
   display: flex;
   flex-direction: column;
   aling-items: center;
   justify-content: space-around;
+  padding: 10px;
   p {
     color: black;
     width: 100%;
-    text-align: center;
+    // text-align: center;
   }
 
   font: var(--unnamed-font-style-normal) normal

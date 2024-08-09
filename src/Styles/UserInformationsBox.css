@@ -58,6 +58,14 @@
   opacity: 1;
 }
 
+.userinformations-box--logout-button {
+  background-color: var(---dc2625-red600);
+  width: 50%;
+  height: 25px;
+  margin-inline: auto;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1918px) {
   .userinformations-box {
     position: relative;

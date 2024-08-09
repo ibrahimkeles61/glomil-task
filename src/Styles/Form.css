@@ -87,29 +87,27 @@
 }
 
 .form--buttons {
-  width: 210px;
+  width: 201px;
   /* position: absolute;
   right: 267px;
   top: 750px; */
   display: flex;
   justify-content: space-between;
-  margin-top: 75px;
+  margin-top: 90px;
 }
 
 .form--button {
-  width: 100px;
-  height: 40px;
+  width: 97px;
+  height: 41px;
   display: grid;
   place-content: center;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
-  font: var(--unnamed-font-style-normal) normal 600 var(--unnamed-font-size-14) /
-    var(--unnamed-line-spacing-20) var(--unnamed-font-family-inter);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--primary-262626);
-  text-align: left;
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-14) / var(--unnamed-line-spacing-20)
+    var(--unnamed-font-family-inter);
   /* font: normal normal 600 14px/20px Inter;
   letter-spacing: 0px;
   color: #262626; */
@@ -123,6 +121,7 @@
 
 .form--cancel-button {
   background-color: transparent;
+  width: 96px;
 }
 
 .disabled {

@@ -30,13 +30,17 @@ export const pagesSlice = createSlice({
   initialState,
   reducers: {
     addNewPageToPath: (state, { payload }) => {
-      state.currentPath.push(payload);
+      const index = state.currentPath.findIndex((e) => e.id == payload.id);
+
+      if (index == -1) {
+        state.currentPath.push(payload);
+      } else {
+        state.currentPath = state.currentPath.slice(0, index + 1);
+      }
     },
     slicePath: (state, { payload }) => {
       const deleteFromThisIndex =
-        state.currentPath.findIndex(
-          (e) => e.sectionName == payload.sectionName
-        ) + 1;
+        state.currentPath.findIndex((e) => e.id == payload.id) + 1;
       state.currentPath = state.currentPath.slice(0, deleteFromThisIndex);
     },
   },

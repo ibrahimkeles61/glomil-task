@@ -1,56 +1,71 @@
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
+import LoginOrSignUp from "./Pages/LoginOrSignUp";
 
 import {
   setUserCredentials,
   setFormValues,
   setFavoriteColors,
 } from "./features/user/userSlice";
-import { db, doc, getDoc } from "./firebase";
+import { db, doc, getDoc, auth, onAuthStateChanged } from "./firebase";
 
-function App() {
+const LoggedInStack = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if (localStorage.getItem("userInstance")) {
-    //   const storage = JSON.parse(localStorage.getItem("userInstance"));
-    //   dispatch(setFormValues(storage.formValues));
-    //   dispatch(setFavoriteColors(storage.favoriteColors));
-    // }
     const getDataFromFireStore = async () => {
-      const docSnap = await getDoc(doc(db, "users", "Ap0gTDiMrLSVj9Stlk63"));
+      const docSnap = await getDoc(doc(db, "users", auth.currentUser?.uid));
 
       if (docSnap.exists()) {
-        // const userName = await docSnap.data().userName;
-        // const userEmail = await docSnap.data().userEmail;
-        // const formValues = await docSnap.data().formValues;
-        // const favoriteColors = await docSnap.data().favoriteColors;
         const { userName, userEmail, formValues, favoriteColors } =
           await docSnap.data();
 
-        dispatch(setUserCredentials({ userName, userEmail }));
+        // dispatch(setUserCredentials({ userName, userEmail }));
         dispatch(setFormValues(formValues));
         dispatch(setFavoriteColors(favoriteColors));
-        // console.log(userName, userEmail, formValues, favoriteColors);
       }
     };
     getDataFromFireStore();
   });
 
   return (
-    <div className="app">
-      <div className="wrapper">
-        <Header />
-        <div className="wrapper-without-header">
-          <Navigation />
-          <Outlet />
-        </div>
+    <div className="wrapper">
+      <Header />
+      <div className="wrapper-without-header">
+        <Navigation />
+        <Outlet />
       </div>
+    </div>
+  );
+};
+
+function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
+
+  useEffect(() => {
+    const monitorAuthState = async () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("giris yapildi: user is => ", user);
+          setLoggedIn(true);
+        } else {
+          console.log("giris yapilamadi");
+          setLoggedIn(false);
+        }
+      });
+    };
+
+    monitorAuthState();
+  }, []);
+
+  return (
+    <div className="app">
+      {loggedIn ? <LoggedInStack /> : <LoginOrSignUp />}
     </div>
   );
 }

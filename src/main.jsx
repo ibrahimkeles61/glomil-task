@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import { store } from "./app/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import LoginOrSignUp from "./Pages/LoginOrSignUp.jsx";
 import ErrorPage from "./Pages/ErrorPage";
 import HomePage from "./Pages/HomePage";
 import Studio from "./Pages/Studio";
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
         element: <Console />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginOrSignUp />,
   },
 ]);
 

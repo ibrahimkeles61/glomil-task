@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  userName: "murat tufan",
-  userEmail: "murat.tufan@glomil.com",
+  // userName: "murat tufan",
+  // userEmail: "murat.tufan@glomil.com",
+  userName: "",
+  userEmail: "",
   formValues: {
     username1: "",
     username2: "",

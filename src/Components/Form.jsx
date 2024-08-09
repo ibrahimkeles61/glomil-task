@@ -11,7 +11,7 @@ import { changeShowFavoriteColors } from "../features/conditions/conditionsSlice
 import TextInput from "./TextInput";
 import OptionInput from "./OptionInput";
 import { nameFormatterJustFirstWord } from "../lib/generalFunctions";
-import { db, doc, setDoc } from "../firebase";
+import { db, doc, setDoc, auth } from "../firebase";
 
 function Form() {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ function Form() {
   const handleDeleteColor = (id) => dispatch(deleteAColor(id));
 
   const saveDataOnFireStore = async () => {
-    await setDoc(doc(db, "users", "Ap0gTDiMrLSVj9Stlk63"), {
+    await setDoc(doc(db, "users", auth.currentUser?.uid), {
       userName,
       userEmail,
       formValues,
